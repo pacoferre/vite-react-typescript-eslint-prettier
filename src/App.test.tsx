@@ -9,7 +9,7 @@ describe('Renders main page correctly', () => {
   })
 
   it('Should render the page correctly', async () => {
-    await render(<App />)
+    render(<App />)
 
     const h1El = await screen.queryByText(
       'Vite + React + TypeScript + ESLint + Prettier + Vitest'
@@ -19,7 +19,7 @@ describe('Renders main page correctly', () => {
   })
 
   it('Should show the button count set to 0', async () => {
-    await render(<App />)
+    render(<App />)
 
     const buttonEl = await screen.queryByText('count is 0')
 
@@ -28,7 +28,7 @@ describe('Renders main page correctly', () => {
 
   it('Should show the button count set to 2', async () => {
     const user = userEvent.setup()
-    await render(<App />)
+    render(<App />)
 
     const buttonEl = await screen.queryByText('count is 0')
 
