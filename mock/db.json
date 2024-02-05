@@ -1,0 +1,40 @@
+{
+  "referenceConfigs": [
+    {
+      "id": "vite",
+      "label": "Vite",
+      "link": "https://vitejs.dev/",
+      "type": 0
+    },
+    {
+      "id": "react",
+      "label": "React",
+      "link": "https://react.dev/",
+      "type": 0
+    },
+    {
+      "id": "typescript",
+      "label": "TypeScript",
+      "link": "https://www.typescriptlang.org/",
+      "type": 0
+    },
+    {
+      "id": "eslint",
+      "label": "ESLint",
+      "link": "https://eslint.org/",
+      "type": 0
+    },
+    {
+      "id": "prettier",
+      "label": "Prettier",
+      "link": "https://prettier.io/",
+      "type": 0
+    },
+    {
+      "id": "vitest",
+      "label": "Vitest",
+      "link": "https://vitest.dev/",
+      "type": 0
+    }
+  ]
+}
