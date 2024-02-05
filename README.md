@@ -17,4 +17,16 @@ Find more...
 
 1. Clone this repo.
 2. Install all dependencies. (uses pnpm as default, you can use others package managers likes npm or yarn)
-3. If you like this boilerplate, don't forget to give a star! :star2:
+3. If you like this boilerplate, don't forget to give a star! :star2: (the original autor, not me, Paco Ferre)
+
+## Visual Studio Code needed plugins
+
+- ESLint (by Microsoft)
+- Prettier (by Prettier)
+- SonarLint (by SonarSource)
+
+## Visual Studio Code recommended settings
+
+- Editor - Default formatter: Prettier
+- Editor - Format on Save: Yes
+- Editor - Format on Paste: Yes (maybe)
