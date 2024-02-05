@@ -1,50 +1,27 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import '@/App.css'
-import { ReferenceConfig, ReferenceConfigTypeEnum } from './types'
+import { ReferenceConfigService } from './services/ReferenceConfigService'
+import { ReferenceConfig } from '@/types'
 
-const referenceConfig: ReferenceConfig[] = [
-  {
-    id: 'vite',
-    label: 'Vite',
-    link: 'https://vitejs.dev/',
-    type: ReferenceConfigTypeEnum.One,
-  },
-  {
-    id: 'react',
-    label: 'React',
-    link: 'https://react.dev/',
-    type: ReferenceConfigTypeEnum.One,
-  },
-  {
-    id: 'typescript',
-    label: 'TypeScript',
-    link: 'https://www.typescriptlang.org/',
-    type: ReferenceConfigTypeEnum.One,
-  },
-  {
-    id: 'eslint',
-    label: 'ESLint',
-    link: 'https://eslint.org/',
-    type: ReferenceConfigTypeEnum.One,
-  },
-  {
-    id: 'prettier',
-    label: 'Prettier',
-    link: 'https://prettier.io/',
-    type: ReferenceConfigTypeEnum.One,
-  },
-  {
-    id: 'vitest',
-    label: 'Vitest',
-    link: 'https://vitest.dev/',
-    type: ReferenceConfigTypeEnum.One,
-  },
-]
+const service = new ReferenceConfigService()
 
 const App = () => {
   const [count, setCount] = useState(0)
+  const [referenceConfigs, setReferenceConfigs] = useState<ReferenceConfig[]>(
+    []
+  )
+
+  useEffect(() => {
+    const fetch = async () => {
+      const items = await service.getAll()
+
+      setReferenceConfigs(items)
+    }
+
+    fetch()
+  }, [])
 
   return (
     <>
@@ -81,14 +58,14 @@ const App = () => {
       </div>
 
       <div className='reference-block'>
-        {referenceConfig.map((item: ReferenceConfig) => (
+        {referenceConfigs.map((item) => (
           <a
             key={item.id}
             href={item.link}
             target='_blank'
             rel='noreferrer'
           >
-            {item.label}
+            {item.label} {item.type.toString()}
           </a>
         ))}
       </div>
