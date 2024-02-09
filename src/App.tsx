@@ -3,7 +3,8 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import '@/App.css'
 import { ReferenceConfigService } from './services/ReferenceConfigService'
-import { ReferenceConfig } from '@/types'
+import Edit from './components/Edit'
+import { ReferenceConfig, ReferenceConfigTypeEnum } from './types'
 
 const service = new ReferenceConfigService()
 
@@ -59,16 +60,22 @@ const App = () => {
 
       <div className='reference-block'>
         {referenceConfigs.map((item) => (
-          <a
-            key={item.id}
-            href={item.link}
-            target='_blank'
-            rel='noreferrer'
-          >
-            {item.label} {item.type.toString()}
-          </a>
+          <div key={item.id}>
+            <a
+              href={item.link}
+              target='_blank'
+              rel='noreferrer'
+            >
+              {item.label}
+            </a>
+            <small style={{ marginLeft: 4 }}>
+              {item.type == ReferenceConfigTypeEnum.Two ? 'TWO' : 'OTHER'}
+            </small>
+          </div>
         ))}
       </div>
+
+      <Edit />
     </>
   )
 }
